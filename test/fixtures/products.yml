@@ -4,8 +4,12 @@ one:
   name: MyString
   short_description: MyText
   long_description: MyText
+  price: 1
+  image_id: 1
 
 two:
   name: MyString
   short_description: MyText
   long_description: MyText
+  price: 1
+  image_id: 1

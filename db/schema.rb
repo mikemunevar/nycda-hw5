@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118215735) do
+ActiveRecord::Schema.define(version: 20161120000952) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20161118215735) do
     t.string   "country"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "person_id"
+  end
+
+  create_table "addresses_people", force: :cascade do |t|
+    t.integer "address_id"
+    t.integer "person_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -29,6 +35,7 @@ ActiveRecord::Schema.define(version: 20161118215735) do
     t.string   "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -36,6 +43,11 @@ ActiveRecord::Schema.define(version: 20161118215735) do
     t.integer  "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders_products", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -46,6 +58,9 @@ ActiveRecord::Schema.define(version: 20161118215735) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "sex"
+    t.integer  "order_id"
+    t.integer  "address_id"
+    t.integer  "product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -56,6 +71,8 @@ ActiveRecord::Schema.define(version: 20161118215735) do
     t.integer  "image_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "person_id"
+    t.integer  "order_id"
   end
 
 end
